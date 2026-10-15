@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 220" role="img" aria-label="GYMRAT — Built Different. Built Disciplined.">
+  <g fill="#FFFFFF">
+    <!-- mark: angular 7 / bolt triangle -->
+    <path d="M40 28h176l-40 54H104l-14 18h92l-36 48H78l48-66H76l-14 18h24L40 28z"/>
+    <path d="M196 130h40l-50 66h-40l22-28h22l-14-18h-30l22-30 28-18z"/>
+  </g>
+  <text x="268" y="132" font-family="Impact, 'Arial Narrow', Haettenschweiler, sans-serif" font-size="118" font-style="italic" letter-spacing="4" fill="#FFFFFF">GYMRAT</text>
+  <text x="272" y="186" font-family="Arial, Helvetica, sans-serif" font-size="27" letter-spacing="7.5" fill="#E8E8E3">BUILT DIFFERENT. BUILT DISCIPLINED.</text>
+</svg>

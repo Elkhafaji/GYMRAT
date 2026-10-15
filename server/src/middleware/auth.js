@@ -1,0 +1,24 @@
+import jwt from 'jsonwebtoken';
+
+export function signToken(user) {
+  return jwt.sign({ sub: user.id, email: user.email, role: user.role }, process.env.JWT_SECRET, { expiresIn: '7d' });
+}
+
+export function requireAuth(req, res, next) {
+  const header = req.headers.authorization || '';
+  const token = header.startsWith('Bearer ') ? header.slice(7) : null;
+  if (!token) return res.status(401).json({ error: 'auth_required', message: 'Authentication required' });
+  try {
+    const payload = jwt.verify(token, process.env.JWT_SECRET);
+    req.userId = Number(payload.sub);
+    next();
+  } catch {
+    return res.status(401).json({ error: 'invalid_token', message: 'Invalid or expired token' });
+  }
+}
+
+export function publicUser(u) {
+  if (!u) return null;
+  const { passwordHash, ...rest } = u;
+  return rest;
+}

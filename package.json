@@ -1,0 +1,41 @@
+{
+  "name": "gymrat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "GYMRAT — Built Different. Built Disciplined. Full-stack athletic streetwear e-commerce (React + Vite + Express + Prisma/SQLite)",
+  "type": "module",
+  "scripts": {
+    "setup": "prisma generate && prisma db push && node prisma/seed.js",
+    "dev": "concurrently -n server,client -c yellow,cyan \"npm:dev:server\" \"npm:dev:client\"",
+    "dev:server": "node --watch server/src/server.js",
+    "dev:client": "vite",
+    "build": "vite build",
+    "start": "node server/src/server.js",
+    "prestart": "prisma generate && prisma db push --skip-generate",
+    "predev": "prisma generate && prisma db push --skip-generate && node prisma/seed.js",
+    "db:seed": "node prisma/seed.js",
+    "db:studio": "prisma studio",
+    "postinstall": "prisma generate"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0",
+    "lucide-react": "^0.462.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "concurrently": "^9.1.0",
+    "prisma": "^5.22.0",
+    "vite": "^5.4.11"
+  }
+}
